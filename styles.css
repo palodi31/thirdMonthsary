@@ -1,0 +1,170 @@
+:root{
+  --blue:#bfe6ff;
+  --pink:#ffd0e6;
+  --ink:#2b2b2b;
+  --bg-grad: linear-gradient(135deg, rgba(191,230,255,.6), rgba(255,208,230,.6));
+}
+
+/* Base */
+html, body { scroll-behavior: smooth; }
+body{
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: #fff;
+}
+
+/* Header */
+.bg-gradient{
+  background: var(--bg-grad);
+  position: relative;
+}
+.bg-gradient::after{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+      radial-gradient(circle at 20% 10%, rgba(191,230,255,.6) 0 25%, transparent 26%),
+      radial-gradient(circle at 80% 30%, rgba(255,208,230,.6) 0 25%, transparent 26%),
+      radial-gradient(circle at 50% 80%, rgba(191,230,255,.5) 0 25%, transparent 26%);
+  pointer-events:none;
+  opacity:.6;
+}
+
+/* Sections */
+.section-pad{ padding: 64px 0; }
+.alt-bg{ background: linear-gradient(180deg, #fff, #fff, rgba(191,230,255,.15)); }
+
+/* SCORECARDS */
+.scorecard{
+  background: #ffffff;
+  border: 2px solid rgba(0,0,0,.05);
+  border-radius: 16px;
+  padding: 20px 18px;
+  text-align: left;
+  width: 100%;
+  box-shadow: 0 12px 24px rgba(0,0,0,.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.scorecard:focus{ outline: 3px solid rgba(255,208,230,.8); }
+.scorecard:hover{ transform: translateY(-3px); box-shadow: 0 18px 36px rgba(0,0,0,.12); }
+.scorecard-emoji{ font-size: 28px; line-height: 1; }
+.scorecard-title{ font-weight: 700; font-size: 1.15rem; margin-top: 6px; }
+.scorecard-sub{ font-size: .9rem; color:#666; }
+
+/* Back button row */
+.back-row{
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+}
+.back-btn{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 999px;
+  box-shadow: 0 8px 16px rgba(0,0,0,.08);
+}
+
+/* Lovely Letter */
+.letter{
+  background: #fff;
+  border: 2px dashed rgba(0,0,0,.08);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(191,230,255,.35);
+  position: relative;
+}
+.script{
+  font-family: 'Sacramento', cursive;
+  font-size: 48px;
+  color: #ff79b0;
+  letter-spacing: .5px;
+}
+.stamp{
+  position:absolute; right:16px; top:16px;
+  width:56px; height:56px; line-height:56px; text-align:center;
+  background: var(--pink);
+  border: 3px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(255,126,170,.35);
+}
+
+/* Polaroid */
+.polaroid{
+  width: 100%;
+  max-width: none;          /* <-- let Bootstrap columns control width */
+  background: #fff;
+  padding: 10px 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 15px 25px rgba(0,0,0,.12);
+  transition: transform .2s ease, box-shadow .2s ease;
+  user-select: none;
+}
+.polaroid img{
+  display:block;
+  width:100%;
+  border-radius:6px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+.polaroid figcaption{ display: none; }
+.polaroid:hover{
+  transform: translateY(-4px) rotate(-1deg);
+  box-shadow: 0 25px 40px rgba(0,0,0,.16);
+  cursor: zoom-in;
+}
+
+
+/* Modal photo styling */
+.modal-photo-wrapper{
+  background: #fff;
+  max-width: 500px;        /* limit modal width */
+  margin: auto;
+}
+.modal-photo{
+  max-height: 70vh;        /* prevent overflow */
+  object-fit: contain;
+}
+
+
+/* Modal note */
+.modal-note{
+  background: linear-gradient(90deg, var(--blue), var(--pink));
+  font-weight: 600;
+  border-bottom-left-radius: .75rem;
+  border-bottom-right-radius: .75rem;
+}
+
+/* Sticky Notes */
+.sticky-grid{ --min: 140px; }
+.sticky-note{
+  position: relative;
+  background: #fff8c4;
+  min-height: 130px;
+  padding: 18px 16px 14px;
+  border-radius: 10px;
+  box-shadow: 0 14px 24px rgba(0,0,0,.12);
+  font-weight: 600;
+  transform-origin: center top;
+}
+.sticky-note .pin{
+  position:absolute; top:-10px; left:50%; transform:translateX(-50%);
+  font-size: 22px;
+}
+.sticky-note.tilt-l{ transform: rotate(-2deg); background: #fff2a8; }
+.sticky-note.tilt-r{ transform: rotate(2deg); background: #ffe7a8; }
+
+/* Checklist */
+.checklist .list-group-item{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.05);
+  border-radius: 12px !important;
+  margin-bottom: 10px;
+}
+.checklist input[type="checkbox"]:checked + span{
+  text-decoration: line-through;
+  opacity: .65;
+}
+
+/* Footer */
+footer{
+  background: #fafbff;
+  border-top: 1px solid rgba(0,0,0,.05);
+}
